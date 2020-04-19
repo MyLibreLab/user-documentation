@@ -14,7 +14,12 @@ jobs:
         shell: bash
         run: |
           mkdir out
+          pwd
+          ls -la
+          ls -la out
           find . -name "pics" -exec cp -r {} out \;
+          ls -la out
+          find out
       - name: Run asciidoctor
         uses: avattathil/asciidoctor-action@master
         with:
