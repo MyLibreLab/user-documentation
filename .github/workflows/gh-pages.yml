@@ -13,20 +13,15 @@ jobs:
       - name: Copy images
         shell: bash
         run: |
-          mkdir out
-          pwd
-          ls -la
-          ls -la out
-          find . -name "pics" -exec cp -r {} out \;
-          ls -la out
-          find out
+          mkdir /tmp/out
+          find . -name "pics" -exec cp -r {} /tmp/out \;
       - name: Run asciidoctor
         uses: avattathil/asciidoctor-action@master
         with:
-          program: "asciidoctor -o out/index.html README.adoc"
+          program: "asciidoctor -o /tmp/out/index.html README.adoc"
       - name: Deploy docs to ghpages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: out/
+          PUBLISH_DIR: /tmp/out
