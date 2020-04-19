@@ -1,0 +1,10 @@
+=== Example 1: Blinking LED
+
+[.text-justify]
+This example is inspired by the post "easy GUI front ends for Arduino Raspberry pi, and more with MyOpenLab" by Al Williams published on hackaday.com. In this example you will build a bench tool by creating a "VirtualMachine (VM)" (i.e., virtual interfaces in MyLibreLab/MyOpenLab lingo). The VM will use your computer as a control panel and readout, and the electronic hardware as the physical interface. The MyLibreLab VM consists of two parts, like LabVIEW programs, a front end panel GUI and a block diagram program. some components of the block diagram will be also on the front panel such as switches, LEDs. While, some components only live on the block diagram side of the VM. On the block diagram panel you can connect components together to implement a computational algorithm or represent signal flow to physical systems such as Arduino and Raspberry Pi I/O.
+
+
+image::pics/ex001_pic001.png[align="center", width=100%]
+
+[.text-justify]
+To follow along this tutorial you need the hardware mentioned in https://www.arduino.cc/en/tutorial/blink[this arduino.cc tutorial] and a USB connection to the computer.  
