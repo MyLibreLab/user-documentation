@@ -19,9 +19,13 @@ jobs:
         uses: avattathil/asciidoctor-action@master
         with:
           program: "asciidoctor -o /tmp/out/index.html README.adoc"
-      - name: Deploy docs to ghpages
+      - name: Collect for gh-pages
+        shell: bash
+        run: |
+          mv /tmp/out .
+      - name: Deploy docs to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: /tmp/out
+          PUBLISH_DIR: out
