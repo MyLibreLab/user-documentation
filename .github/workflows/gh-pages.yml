@@ -10,17 +10,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Copy images
+        shell: bash
+        run: |
+          mkdir out
+          find . -name "pics" -exec cp -r {} out \;
       - name: Run asciidoctor
         uses: avattathil/asciidoctor-action@master
         with:
           program: "asciidoctor -o out/index.html README.adoc"
-      - name: Copy images
-        shell: bash
-        run: |
-          find . -name "pics" -exec cp -r {} out \;
       - name: Deploy docs to ghpages
         uses: peaceiris/actions-gh-pages@v3
         env:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: out/
