@@ -26,7 +26,7 @@ jobs:
           program: "asciidoctor -o out/index.html README.adoc"
       - name: Deploy docs to ghpages
         uses: peaceiris/actions-gh-pages@v3
-        env:
+        with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: out/
