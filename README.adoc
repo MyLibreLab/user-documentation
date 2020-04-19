@@ -1,5 +1,5 @@
 [.text-center]
-== MyOpenLab user documentation and tutorials
+== MyLibreLab user documentation and tutorials
 :author: Foad Sojoodi Farimani
 :email: f.s.farimani@gmail.com
 
