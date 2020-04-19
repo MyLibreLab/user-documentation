@@ -10,20 +10,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Copy images
-        shell: bash
-        run: |
-          mkdir /tmp/out
-          find . -name "pics" -exec cp -r {} /tmp/out \;
       - name: Run asciidoctor
         uses: avattathil/asciidoctor-action@master
         with:
-          program: "asciidoctor -o /tmp/out/index.html README.adoc"
-      - name: Collect for gh-pages
-        shell: bash
-        run: |
-          ls -la  /tmp/out
-          mv /tmp/out .
+          program: "asciidoctor -o index.html README.adoc"
+      - name: Copy images and prepare for gh-pages publishing
+          shell: bash
+          run: |
+            mkdir /tmp/out
+            find . -name "pics" -exec cp -r {} /tmp/out \;
+            mv /tmp/out .
+            mv index.html out
       - name: Deploy docs to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
