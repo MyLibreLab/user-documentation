@@ -517,91 +517,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_tutorials">Tutorials:</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_example_1_blinking_led">Example 1: Blinking LED</h3>
-<div class="paragraph text-justify">
-<p>This example is inspired by the post "easy GUI front ends for Arduino Raspberry pi, and more with MyOpenLab" by Al Williams published on hackaday.com. In this example you will build a bench tool by creating a "VirtualMachine (VM)" (i.e., virtual interfaces in MyLibreLab/MyOpenLab lingo). The VM will use your computer as a control panel and readout, and the electronic hardware as the physical interface. The MyLibreLab VM consists of two parts, like LabVIEW programs, a front end panel GUI and a block diagram program. some components of the block diagram will be also on the front panel such as switches, LEDs. While, some components only live on the block diagram side of the VM. On the block diagram panel you can connect components together to implement a computational algorithm or represent signal flow to physical systems such as Arduino and Raspberry Pi I/O.</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="pics/ex001_pic001.png" alt="ex001 pic001" width="70%">
-</div>
-</div>
-<div class="paragraph text-justify">
-<p>To follow along this tutorial you need the hardware mentioned in <a href="https://www.arduino.cc/en/tutorial/blink">this arduino.cc tutorial</a> and a USB connection to the computer. Alternatively If you don&#8217;t have access to the actual hardware you may use software Like SimulIDE and KTechLab to emulate the hardware and have virtual serial ports.</p>
-</div>
-<div class="sect3">
-<h4 id="_installing_firmata">Installing Firmata:</h4>
-<div class="paragraph text-justify">
-<p>Connect the Arduino Uno board to the computer via USB cable, and open the Arduino IDE. Make sure you have the right port and board selected from the <code>Menu bar &gt; Tools</code>:</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="pics/ex001_pic003.png" alt="ex001 pic003" width="70%">
-</div>
-</div>
 <div class="paragraph">
-<p>Select the <code>standardFirmata</code> sketch from <code>Menu bar &gt; File &gt; Examples &gt; Firmata &gt; StandardFirmata</code></p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="pics/ex001_pic004.png" alt="ex001 pic004" width="70%">
-</div>
-</div>
-<div class="paragraph">
-<p>and add the line below as the first line of the <code>setup</code> function:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>analogReference(INTERNAL);</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>or alternatively upload the <code>standardFirmata/StandardFirmata.ino</code> sketch in this tutorial to the Arduino board.</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="pics/ex001_pic005.png" alt="ex001 pic005" width="70%">
-</div>
-</div>
-<div class="paragraph">
-<p>To test that everything is working properly, open the <code>Menu bar &gt; Tools &gt; Serial Monitor</code></p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="pics/ex001_pic006.png" alt="ex001 pic006" width="70%">
-</div>
-</div>
-<div class="paragraph">
-<p>and make sure the Baud rate of <code>57600</code> is selected at the bottom right corner</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="pics/ex001_pic007.png" alt="ex001 pic007" width="70%">
-</div>
-</div>
-<div class="paragraph">
-<p>you should see the above message in the terminal.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_creating_the_mylibrelab_project">Creating the MyLibreLab project:</h4>
-<div class="paragraph">
-<p>Open the MyLibreLab software and create a new project from the toolbar or the menu bar.</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="pics/ex001_pic002.png" alt="ex001 pic002" width="70%">
-</div>
-</div>
-</div>
+<p>Unresolved directive in README.adoc - include::Tutorials/ex001/ex001.adoc[]</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-19 19:31:41 UTC
+Last updated 2020-04-22 21:41:01 UTC
 </div>
 </div>
 </body>
