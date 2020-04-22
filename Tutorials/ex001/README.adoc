@@ -1,18 +1,23 @@
 === Example 1: Blinking LED
 
+:experimental:
+:commandkey: &#8984;
+:macalt: Alt⌥ 
+
+
 [.text-justify]
-This example is inspired by the post "easy GUI front ends for Arduino Raspberry pi, and more with MyOpenLab" by Al Williams published on hackaday.com. In this example you will build a bench tool by creating a "VirtualMachine (VM)" (i.e., virtual interfaces in MyLibreLab/MyOpenLab lingo). The VM will use your computer as a control panel and readout, and the electronic hardware as the physical interface. The MyLibreLab VM consists of two parts, like LabVIEW programs, a front end panel GUI and a block diagram program. some components of the block diagram will be also on the front panel such as switches, LEDs. While, some components only live on the block diagram side of the VM. On the block diagram panel you can connect components together to implement a computational algorithm or represent signal flow to physical systems such as Arduino and Raspberry Pi I/O.
+This example is inspired by https://hackaday.com/2018/09/21/myopenlab-talks-to-arduino-pi-and-more/[the post] "easy GUI front ends for Arduino Raspberry pi, and more with MyOpenLab" by Al Williams (https://twitter.com/awce_com?lang=en[Twitter], https://www.linkedin.com/in/alwilliams77573/[LinkedIn]) published on hackaday.com. In this example you will build a bench tool by creating a "VirtualMachine (VM)" (i.e., virtual interfaces in MyLibreLab/MyOpenLab lingo). The VM will use your computer as a control panel and readout, and the electronic hardware as the physical interface. The MyLibreLab VM consists of two parts, like LabVIEW programs, a front end panel GUI and a block diagram program. some components of the block diagram will be also on the front panel such as switches, LEDs. While, some components only live on the block diagram side of the VM. On the block diagram panel you can connect components together to implement a computational algorithm or represent signal flow to physical systems such as Arduino and Raspberry Pi I/O.
 
 
 image::pics/ex001_pic001.png[align="center", width=70%]
 
 [.text-justify]
-To follow along this tutorial you need the hardware mentioned in https://www.arduino.cc/en/tutorial/blink[this arduino.cc tutorial] and a USB connection to the computer. Alternatively If you don't have access to the actual hardware you may use software Like SimulIDE and KTechLab to emulate the hardware and have virtual serial ports. 
+To follow along this tutorial you need the hardware mentioned in https://www.arduino.cc/en/tutorial/blink[this arduino.cc tutorial] and a USB connection to the computer. Alternatively If you don't have access to the actual hardware you may use software Like SimulIDE and KTechLab to emulate the hardware and have virtual serial ports. (https://github.com/MyLibreLab/user-documentation/issues[#todo])
 
 ==== Installing Firmata:
 
 [.text-justify]
-Connect the Arduino Uno board to the computer via USB cable, and open the Arduino IDE. Make sure you have the right port and board selected from the `Menu bar > Tools`:
+https://www.arduino.cc/en/reference/firmata[Firmata library] provides a standard protocol for serial communication and control of an Arduino expansion board. Connect the Arduino Uno board to the computer via USB cable, and open the Arduino IDE. Make sure you have the right port and board selected from the `Menu bar > Tools`:
 
 image::pics/ex001_pic003.png[align="center", width=70%]
 
@@ -41,6 +46,46 @@ you should see the above message in the terminal.
 
 ==== Creating the MyLibreLab project:
 
-Open the MyLibreLab software and create a new project from the toolbar or the menu bar.
+Open the MyLibreLab software and create a new project from the toolbar or the menu bar (kbd:[{macalt} + a]). 
 
 image::pics/ex001_pic002.png[align="center", width=70%]
+
+by specifying the `Project Name`, `Project Location`, and name of the `Main VM` and select `OK`:
+
+image::pics/ex001_pic008.png[align="center", width=70%]
+
+then from the menu bar select the `Interfaces`:
+
+image::pics/ex001_pic009.png[align="center", width=70%]
+
+and consequently select the `Arduino Standard Firmata Interface ...`
+
+image::pics/ex001_pic010.png[align="center", width=70%]
+
+and place it on the `Circuit Panel`:
+
+image::pics/ex001_pic011.png[align="center", width=70%]
+
+while the Firmata block is selected, on the `Property-Editor` panel, choose the right `COM Port`:
+
+image::pics/ex001_pic012.png[align="center", width=70%]
+
+and then select the `...` on the `Config Pins` row.
+
+image::pics/ex001_pic013.png[align="center", width=70%]
+
+activate `Pin 2` as `DIGITAL_INPUT` and `Pin 13` as `DIGITAL_OUTPUT`. Go to the `Front panel` and then select the `Boolean`:
+
+image::pics/ex001_pic014.png[align="center", width=70%]
+
+put an `Tilt button` and `LED red` on the `Front Panel`:
+
+image::pics/ex001_pic015.png[align="center", width=70%]
+
+now go back to the `Circuit panel` and connect the switch to `Pin 2` and the `Pin 13` to the LED
+
+image::pics/ex001_pic016.png[align="center", width=70%]
+
+and then run:
+
+image::pics/ex001_pic017.gif[align="center", width=70%]
